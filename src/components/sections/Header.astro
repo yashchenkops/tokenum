@@ -15,6 +15,10 @@ import HeaderSection from '../modules/HeaderSection/index.astro'
 
 <style lang="scss">
   @use '@/styles/base/variables' as v;
+
+  .page-header {
+    padding-top: 80px;
+  }
   
   :global(.page-header__inner) {
     display: flex;
@@ -28,14 +32,8 @@ import HeaderSection from '../modules/HeaderSection/index.astro'
     justify-content: center;
     flex-direction: column;
     gap: 12px;
-    width: 142px;
-    height: 142px;
     cursor: pointer;
     z-index: 99;
-
-    &:hover {
-      background-color: v.$bg-primary;
-    }
 
     span {
       background-color: v.$black;

@@ -1,0 +1,51 @@
+---
+const {
+  as: Tag = 'h2',
+  size = 'large',
+  tone = 'dark',
+  class: className = '',
+  ...rest
+} = Astro.props;
+---
+
+<Tag
+  class:list={[
+    'section-title',
+    `section-title--${size}`,
+    `section-title--${tone}`,
+    className
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .section-title {
+    font-weight: 700;
+    line-height: 95%;
+    background: radial-gradient(50.03% 50.00% at 50.00%  50.00%, rgb(21, 21, 21) 41.27415120601654%, rgb(76, 76, 76) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+
+    &--large {
+      font-size: 96px;
+    }
+
+    &--medium {
+      font-size: 64px;
+    }
+
+    &--light {
+      color: v.$white;
+    }
+
+    &--dark {
+      color: v.$black;
+    }
+  }
+</style>
