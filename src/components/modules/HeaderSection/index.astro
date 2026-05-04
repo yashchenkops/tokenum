@@ -1,0 +1,10 @@
+---
+import './index.scss'
+const { class: className = '', ...rest } = Astro.props;
+---
+
+<header class:list={['page-header', className && `page-header--${className}`]} {...rest}>
+  <div class="page-header__inner">
+    <slot />
+  </div>
+</header>

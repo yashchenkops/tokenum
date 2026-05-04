@@ -1,0 +1,10 @@
+---
+import './index.scss'
+const { class: className = '', ...rest } = Astro.props;
+---
+
+<footer class:list={['page-footer', className && `page-footer--${className}`]} {...rest}>
+  <div class="page-footer__inner">
+    <slot />
+  </div>
+</footer>

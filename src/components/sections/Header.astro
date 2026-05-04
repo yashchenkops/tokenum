@@ -1,0 +1,47 @@
+---
+import HeaderSection from '../modules/HeaderSection/index.astro'
+---
+
+<HeaderSection>
+  <div class="header__logo">
+    <img src="./logo.svg" alt="Logo">
+  </div>
+  <button class="header__burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</HeaderSection>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+  
+  :global(.page-header__inner) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 142px;
+    height: 142px;
+    cursor: pointer;
+    z-index: 99;
+
+    &:hover {
+      background-color: v.$bg-primary;
+    }
+
+    span {
+      background-color: v.$black;
+      width: 64px;
+      height: 6px;
+      transition: all 0.3s ease;
+    }
+  }
+</style>

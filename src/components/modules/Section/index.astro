@@ -1,0 +1,10 @@
+---
+import './index.scss'
+const { class: className = '', ...rest } = Astro.props;
+---
+
+<section class:list={['page-section', className && `page-section--${className}`]} {...rest}>
+  <div class="page-section__inner">
+    <slot />
+  </div>
+</section>
