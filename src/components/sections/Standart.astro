@@ -1,0 +1,59 @@
+---
+import Button from '../modules/Button.astro';
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+---
+
+<Section class="standart">
+  <SectionTitle as="h2" size="large" tone="light">Not just an exchange.<br />A new standard.</SectionTitle>
+  <p class="standart__description">Orders fill fast, pricing stays predictable, and your assets stay locked down. The result is simple: more executed trades, fewer surprises.</p>
+  <Button href="#" variant="white">read more about us</Button>
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  :global(.page-section--standart .page-section__inner) {
+    position: relative;
+    background-color: v.$black;
+    padding: 180px 160px 100px;
+    border-top-right-radius: 100px;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: v.$white;
+    }
+    
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: -50px;
+      left: -50px;
+      rotate: 45deg;
+    }
+  }
+
+  .section-title {
+    margin-bottom: 48px;
+    max-width: 1000px;
+  }
+
+  .standart__description {
+    font-size: 32px;
+    line-height: 110%;
+    color: v.$title-white;
+    opacity: 0.6;
+    margin-bottom: 64px;
+  }
+
+  .button {
+    max-width: 340px;
+  }
+</style>

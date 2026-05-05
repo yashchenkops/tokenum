@@ -17,8 +17,8 @@ const Tag = as || (href ? 'a' : 'button');
     `button--${variant}`,
     className
   ]}
-  href={Tag === 'a' ? href : undefined}
-  type={Tag === 'button' ? type : undefined}
+  href={Tag === 'a' ? href : null}
+  type={Tag === 'button' ? type : null}
   {...rest}
 >
   <slot />
