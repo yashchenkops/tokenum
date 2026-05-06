@@ -14,30 +14,14 @@ import SectionTitle from '../modules/SectionTitle.astro';
   @use '@/styles/base/variables' as v;
 
   :global(.page-section--standart .page-section__inner) {
-    position: relative;
     background-color: v.$black;
     padding: 180px 160px 100px;
     border-top-right-radius: 100px;
-    
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: v.$white;
-    }
-    
-    &::before {
-      top: 0;
-      left: 0;
-    }
+    @include v.itemFigure();
+  }
 
-    &::after {
-      bottom: -50px;
-      left: -50px;
-      rotate: 45deg;
-    }
+  .page-section--standart {
+    padding-bottom: 150px;
   }
 
   .section-title {

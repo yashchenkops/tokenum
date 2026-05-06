@@ -1,0 +1,164 @@
+---
+import Button from '../modules/Button.astro';
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+---
+
+<Section class="trusted">
+  <SectionTitle as="h2" size="medium" tone="dark">Trusted<br />by leaders</SectionTitle>
+  <div class="trusted__slider">
+    <div class="trusted__slider-wrapper swiper" data-swiper>
+      <div class="trusted__slider-inner swiper-wrapper">
+        <div class="trusted__slide swiper-slide">
+          <div class="trusted__slide-logo">
+            <img src="./crypto-economy.svg" alt="Logo of Crypto Economy" />
+          </div>
+          <p class="trusted__slide-description">
+            Real-time news and insights across the crypto market
+          </p>
+          <Button href="#" variant="white">read more about us</Button>
+        </div>
+        <div class="trusted__slide swiper-slide">
+          <div class="trusted__slide-logo">
+            <img src="./the-crypto-times.svg" alt="Logo of The Crypto Times" />
+          </div>
+          <p class="trusted__slide-description">
+            The world’s most trusted review platform.
+          </p>
+          <Button href="#" variant="white">read more about us</Button>
+        </div>
+        <div class="trusted__slide swiper-slide">
+          <div class="trusted__slide-logo">
+            <img src="./trustpilot.svg" alt="Logo of Trustpilot" />
+          </div>
+          <p class="trusted__slide-description">
+            The world’s most trusted review platform.
+          </p>
+          <Button href="#" variant="white">read more about us</Button>
+        </div>
+
+        <div class="trusted__slide swiper-slide">
+          <div class="trusted__slide-logo">
+            <img src="./the-crypto-times.svg" alt="Logo of The Crypto Times" />
+          </div>
+          <p class="trusted__slide-description">
+            The world’s most trusted review platform.
+          </p>
+          <Button href="#" variant="white">read more about us</Button>
+        </div>
+        <div class="trusted__slide swiper-slide">
+          <div class="trusted__slide-logo">
+            <img src="./the-crypto-times.svg" alt="Logo of The Crypto Times" />
+          </div>
+          <p class="trusted__slide-description">
+            The world’s most trusted review platform.
+          </p>
+          <Button href="#" variant="white">read more about us</Button>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</Section>
+
+<script>
+  import { initSwiper } from '../../scripts/slider';
+
+  document.querySelectorAll('[data-swiper]').forEach(initSwiper);
+</script>
+
+<style lang="scss" is:global>
+  @use 'swiper/css';
+  @use 'swiper/css/navigation';
+</style>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .page-section--trusted {
+    padding-bottom: 150px;
+  }
+
+  .section-title {
+    margin-bottom: 64px;
+    max-width: 412px;
+    text-transform: uppercase;
+  }
+
+  .trusted__slider {
+    position: relative;
+    padding: 0 80px;
+  }
+
+  .trusted__slider-wrapper {
+    max-width: 1400px;
+  }
+
+  .trusted__slide {
+    filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0 45px 0 0;
+    background-color: v.$black;
+    padding: 60px 72px 45px 71px;
+    @include v.itemFigure($size: 45px);
+    min-height: 450px;
+
+    &::before {
+      left: -1px;
+    }
+  }
+
+  .trusted__slide-logo {
+    padding-bottom: 20px;
+  }
+
+  .trusted__slide-description {
+    font-size: 24px;
+    line-height: 110%;
+    color: v.$title-white;
+    padding-bottom: 20px;
+  }
+
+  .swiper-slide-active {
+    background-color: v.$blue;
+    filter: blur(0);
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 54px;
+    height: 54px;
+    background-color: v.$black;
+    transform: translateY(-50%);
+  }
+
+  .swiper-button-prev {
+    &::before {
+      content: '';
+      width: 17px;
+      height: 17px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.2416 13.2209L1.20001 13.2209M13.2198 25.2406L1.20001 13.2209L13.2208 1.20007' stroke='%23F8F8F8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    }
+  }
+
+  .swiper-button-next {
+    &::after {
+      content: '';
+      width: 17px;
+      height: 17px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.19989 13.2198H25.2415M13.2218 1.20003L25.2415 13.2198L13.2207 25.2406' stroke='%23F8F8F8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    }
+  }
+
+  .button {
+    font-size: 20px;
+    line-height: 90%;
+  }
+</style>

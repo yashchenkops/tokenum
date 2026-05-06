@@ -9,3 +9,27 @@ $white: #fff;
 $black: #151515;
 $blue: #0D7BD4;
 $title-white: #f8f8f8;
+
+@mixin itemFigure($bg-color: $white, $size: 100px) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $size;
+    height: $size;
+    background-color: $bg-color;
+  }
+  
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: calc(#{$size} / -2);
+    left: calc(#{$size} / -2);
+    rotate: 45deg;
+  }
+}
