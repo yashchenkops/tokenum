@@ -9,6 +9,7 @@ $white: #fff;
 $black: #151515;
 $blue: #0D7BD4;
 $title-white: #f8f8f8;
+$title-black: rgba(21, 21, 21, 0.6);
 
 @mixin itemFigure($bg-color: $white, $size: 100px) {
   position: relative;

@@ -1,0 +1,151 @@
+---
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+
+const freedomCard = [
+  {
+    title: 'Sign Up and activate your email'
+  },
+  {
+    title: 'Complete your account verification process'
+  },
+  {
+    title: 'Exchange crypto with no limits'
+  }
+]
+---
+
+<Section class="freedom">
+  <div class="freedom__info">
+    <SectionTitle as="h2" size="medium" tone="dark">Crypto freedom<br />in 3 steps</SectionTitle>
+    <p class="freedom__description">Follow this easy steps to start using product</p>
+  </div>
+  <div class="freedom__cards">
+    {freedomCard.map(card => {
+      return (
+        <div class="freedom__card">
+          <h3 class="freedom__card-title">{card.title}</h3>
+          <div class="freedom__card-arrow">
+            <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.19995 28.2002L15.2 14.7002L1.19995 1.2002" stroke="#F8F8F8" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      )
+    })}
+  </div>
+  <div class="freedom__decoration">
+    <svg width="5548" height="654" viewBox="0 0 5548 654" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.2">
+      <path d="M5417.21 0H5129.34V130.867H4998.55V0.111855H4710.79V130.867H4580V654H4710.79V130.867H4998.55V654H5129.34V130.867H5417.21V653.888H5548V130.867C5548 58.6106 5489.49 0 5417.21 0Z" fill="#0D7BD4"/>
+      <path d="M4449 0V523.133C4449 595.389 4390.39 654 4318.13 654H3925.87L3795 523.133V0H3925.87V523.133H4318.13V0H4449Z" fill="#0D7BD4"/>
+      <path d="M3533.22 0H3140.78V130.867H3010V654H3140.78V130.867H3533.22V653.888H3664V130.867C3664 58.6106 3605.49 0 3533.22 0Z" fill="#0D7BD4"/>
+      <path d="M2354.78 392.378V523.133H2878V654H2354.78L2224 523.133V130.867H2354.78V261.622H2747.22V130.867H2354.78V0H2747.22C2819.38 0 2878 58.6106 2878 130.867V261.622L2747.22 392.378H2354.78Z" fill="#0D7BD4"/>
+      <path d="M2093 0H1962.22V261.622H1569.78V0H1439V654H1569.78V392.378H1962.22L2093 261.622V0Z" fill="#0D7BD4"/>
+      <path d="M2093 392H1962V654H2093V392Z" fill="#0D7BD4"/>
+      <path d="M1308 130.867V654H784.778L654 523.133V130.867H784.778V523.133H1177.22V130.867H784.778V0H1177.22C1249.38 0 1308 58.6106 1308 130.867Z" fill="#0D7BD4"/>
+      <path d="M392.629 0L262 130.867V654H392.629V130.867H654V0H392.629Z" fill="#0D7BD4"/>
+      <path d="M262 0H0V131H262V0Z" fill="#0D7BD4"/>
+      </g>
+    </svg>
+  </div>
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .page-section--freedom {
+    background-color: v.$white;
+    padding: 128px 0;
+    overflow: hidden;
+  }
+  
+  :global(.page-section--freedom .page-section__inner) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    z-index: 1;
+  }
+
+  .freedom__info {
+    max-width: 965px;
+  }
+
+  .section-title {
+    margin-bottom: 48px;
+    max-width: 1000px;
+    text-transform: uppercase;
+  }
+
+  .freedom__description {
+    color: v.$title-black;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 110%;
+  }
+
+  .freedom__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 627px;
+    width: 100%;
+  }
+
+  .freedom__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    color: v.$title-white;
+    background-image: url("data:image/svg+xml,%3Csvg width='627' height='170' viewBox='0 0 627 170' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.0004 25V0H602C615.807 0 627 11.1929 627 25.0001L626.999 170H25L0 145L0.000385284 25H25.0004Z' fill='%23151515'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: contain;
+    aspect-ratio: 18/5;
+    cursor: pointer;
+
+    &:hover {
+      .freedom__card-arrow {
+        background-color: v.$white;
+
+        svg {
+          translate: 3px;
+
+          path {
+            stroke: v.$black;
+          }
+        }
+      }
+    }
+  }
+
+  .freedom__card-title {
+    font-size: 32px;
+    line-height: 110%;
+    text-transform: capitalize;
+    max-width: 365px;
+  }
+
+  .freedom__card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    background-color: transparent;
+    border: 1px solid v.$title-white;
+    transition: all 0.2s ease;
+
+    svg {
+      transition: translate 0.2s ease;
+    }
+  }
+
+  .freedom__decoration {
+    position: absolute;
+    bottom: -430px;
+    left: 0;
+    z-index: -1;
+  }
+</style>
