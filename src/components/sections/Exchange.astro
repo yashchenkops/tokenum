@@ -1,0 +1,202 @@
+---
+import { Image } from 'astro:assets';
+
+import exchangeCoin from '@/assets/img/exchange-coin.webp';
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+---
+
+<Section class="exchange">
+  <div class="exchange__top">
+    <SectionTitle as="h2" size="medium" tone="light">crypto<br />Exchange</SectionTitle>
+    <p class="exchange__description">Convert Bitcoin, Ethereum, and altcoins instantly—optimized for transparency and convenience.</p>
+  </div>
+  <div class="exchange__bottom">
+    <div class="exchange__bottom-left">
+      <div class="exchange__bottom-left-item">
+        <div class="exchange__bottom-left-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="#F8F8F8"/>
+            <path d="M23.9591 13.442C24.2875 11.2312 22.5999 10.0528 20.2744 9.2525L21.0276 6.274L19.1917 5.82017L18.4586 8.72517L16.9934 8.37867L17.736 5.45267L15.9001 5L15.1458 7.989L13.9783 7.716V7.70433L11.4399 7.07433L10.9515 9.02033C10.9515 9.02033 12.3108 9.33767 12.2896 9.347C13.0322 9.53717 13.1604 10.0213 13.1393 10.4005L12.2884 13.8107L12.4802 13.8737L12.279 13.8317L11.0786 18.5998C10.9939 18.8215 10.7609 19.1575 10.2407 19.0198C10.2619 19.0525 8.91323 18.7048 8.91323 18.7048L8 20.7792L10.389 21.3683L11.6953 21.7055L10.9303 24.7272L12.7662 25.1787L13.5111 22.1897L14.9857 22.5677L14.2325 25.5473L16.0684 26L16.8228 22.9783C19.9555 23.5675 22.3127 23.3365 23.3013 20.526C24.0968 18.2627 23.2577 16.9677 21.6125 16.1043C22.8129 15.8418 23.7143 15.052 23.9485 13.442H23.9591ZM19.7649 19.2742C19.2012 21.5375 15.3576 20.3055 14.116 20.0092L15.1246 16.0005C16.3661 16.3155 20.3592 16.9152 19.7649 19.2625V19.2742ZM20.3274 13.4105C19.8178 15.4638 16.6109 14.4208 15.5812 14.1688L16.4932 10.537C17.5347 10.7902 20.8687 11.2743 20.3274 13.4105Z" fill="#151515"/>
+          </svg>
+        </div>
+        <div class="exchange__bottom-left-info">
+          <p class="exchange__bottom-left-title">BTC</p>
+          <p class="exchange__bottom-left-description">Bitcoin</p>
+        </div>
+      </div>
+      <div class="exchange__bottom-left-item">
+        <div class="exchange__bottom-left-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="#F8F8F8"/>
+            <path d="M15.5 6V13.7583L22 16.6937L15.5 6ZM15.5 6L9 16.6937L15.5 13.7595V6ZM15.5 21.7232V26.9988L22 17.9175L15.5 21.7232ZM15.5 26.9988V21.7232L9 17.9175L15.5 26.9988Z" fill="#151515"/>
+            <path d="M15.5 20L22 16.0483L15.5 13V20ZM9 16.0483L15.5 19.9988V13.0012L9 16.0483Z" fill="#151515"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 21L9 17.062L15.5 6L22 17.062L15.5 21ZM9.43218 16.741L15.396 6.59136V13.9713L9.43218 16.741ZM9.3432 17.0186L15.396 14.2102V20.6838L9.3432 17.0186ZM15.604 14.2102V20.6838L21.651 17.0174L15.604 14.2102ZM15.604 13.9713L21.5667 16.741L15.604 6.59136V13.9713Z" fill="#151515"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 20.6924L9 17L15.5 26L22 17L15.5 20.6924ZM9.728 17.6504L15.396 20.8738V25.5009L9.728 17.6504ZM15.604 20.8738V25.5009L21.272 17.6504L15.604 20.8738Z" fill="#151515"/>
+          </svg>
+        </div>
+        <div class="exchange__bottom-left-info">
+          <p class="exchange__bottom-left-title">ETH</p>
+          <p class="exchange__bottom-left-description">Ethereum</p>
+        </div>
+      </div>
+      <div class="exchange__bottom-left-item">
+        <div class="exchange__bottom-left-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="#F8F8F8"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14 25.5584C14 25.8903 13.7332 26.065 13.4131 25.9777C11.2608 25.3014 9.3829 23.9708 8.05047 22.178C6.71804 20.3852 6 18.2229 6 16.0032C6 13.7834 6.71804 11.6211 8.05047 9.82831C9.3829 8.0355 11.2608 6.70494 13.4131 6.02867C13.7332 5.92386 14 6.11602 14 6.44792V7.25147C14 7.47856 13.8222 7.72312 13.6088 7.79299C10.2121 9.01578 7.77577 12.23 7.77577 15.9857C7.77577 19.7414 10.2121 22.9556 13.6088 24.1784C13.8222 24.2483 14 24.5103 14 24.7199V25.5409V25.5584Z" fill="#151515"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9829 22.563C16.9829 22.8077 16.7854 23 16.5339 23H15.636C15.3846 23 15.187 22.8077 15.187 22.563V21.1823C13.2295 20.9201 12.2777 19.8539 12.0083 18.4032C11.9545 18.1586 12.17 17.9313 12.4214 17.9313H13.445C13.6605 17.9313 13.8401 18.0712 13.876 18.2809C14.0736 19.1548 14.5764 19.8015 16.1568 19.8015C17.3241 19.8015 18.1323 19.1723 18.1323 18.2285C18.1323 17.2846 17.6474 16.9351 15.9413 16.6554C13.4271 16.3233 12.2418 15.5893 12.2418 13.6667C12.2418 12.181 13.3912 11.0449 15.1691 10.7828V9.43695C15.1691 9.19226 15.3666 9 15.6181 9H16.516C16.7674 9 16.965 9.19226 16.965 9.43695V10.8352C18.4196 11.0799 19.3355 11.8839 19.6229 13.2122C19.6767 13.4569 19.4792 13.7016 19.2098 13.7016H18.258C18.0604 13.7016 17.8809 13.5618 17.827 13.387C17.5756 12.5481 16.947 12.181 15.8874 12.181C14.7022 12.181 14.0916 12.7403 14.0916 13.5268C14.0916 14.3483 14.4328 14.7678 16.2646 15.03C18.7249 15.362 20 16.0437 20 18.0886C20 19.6442 18.8147 20.9026 16.965 21.1823V22.563H16.9829Z" fill="#151515"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5867 25.965C19.2667 26.07 19 25.8776 19 25.5453V24.7409C19 24.496 19.1422 24.2687 19.3911 24.1987C22.7867 22.9746 25.2222 19.7568 25.2222 15.9969C25.2222 12.2369 22.7867 9.01915 19.3911 7.79499C19.281 7.74953 19.186 7.67466 19.1169 7.57885C19.0478 7.48305 19.0073 7.37013 19 7.25287V6.44842C19 6.11615 19.2667 5.92378 19.5867 6.02871C23.8889 7.37528 27 11.3451 27 16.0144C27 20.6837 23.8889 24.6359 19.5867 26V25.965Z" fill="#151515"/>
+          </svg>
+        </div>
+        <div class="exchange__bottom-left-info">
+          <p class="exchange__bottom-left-title">USDC</p>
+          <p class="exchange__bottom-left-description">Usdc</p>
+        </div>
+      </div>
+    </div>
+    <div class="exchange__bottom-right">
+      <Image class="exchange__bottom-right-coin" src={exchangeCoin} alt="Exchange coin"/>
+      <div class="exchange__bottom-right-form">
+        <h3 class="exchange__bottom-right-title">
+          Exchange crypto instantly
+        </h3>
+        <div class="exchange__bottom-right-currency">
+          <span class="currency-left currency-item">1 EURO (EUR)</span>
+          <span class="currency-item">=</span>
+          <span class="currency-right currency-item">0,00001193 Bitcoin (BTC)</span>
+        </div>
+        <input type="text" class="exchange__bottom-right-input" name="euro" placeholder="Enter amount in EUR">
+        <input type="text" class="exchange__bottom-right-input" name="bitcoin" placeholder="Enter amount in Bitcoin">
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .page-section--exchange {
+    background-color: v.$black;
+    padding: 128px 0 190px;
+  }
+
+  .exchange__top {
+    margin-bottom: 64px;
+  }
+
+  .section-title {
+    margin-bottom: 48px;
+    max-width: 1000px;
+    text-transform: uppercase;
+  }
+
+  .exchange__description {
+    font-size: 32px;
+    line-height: 110%;
+    color: v.$title-white;
+    opacity: 0.6;
+    max-width: 665px;
+  }
+
+  .exchange__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .exchange__bottom-left {
+    background-color: v.$black;
+    padding: 100px 140px;
+    color: v.$title-white;
+    border: 1px solid v.$white;
+    border-radius: 0 60px 0 0;
+    width: 50%;
+    @include v.itemFigure($bg-color: v.$black, $size: 57px);
+
+    &::before {
+      border-top: 1px solid v.$black;
+      border-left: 1px solid v.$black;
+      border-right: 1px solid v.$white;
+      border-bottom: 1px solid v.$white;
+      left: -1px;
+      top: -1px;
+    }
+
+    &::after {
+      border-top: 1px solid v.$white;
+    }
+  }
+
+  .exchange__bottom-left-item {
+    display: flex;
+    gap: 38px;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .exchange__bottom-left-icon {
+    padding-top: 10px;
+  }
+
+  .exchange__bottom-left-title {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 120%;
+    color: v.$title-white;
+    margin-bottom: 8px;
+  }
+
+  .exchange__bottom-left-description {
+    font-size: 24px;
+    line-height: 133%;
+    color: v.$title-white;
+    opacity: 0.6;
+  }
+
+  .exchange__bottom-right {
+    width: 50%;
+    padding: 113px 54px 96px 89px;
+    border-radius: 0 60px 0 0;
+    background-color: v.$blue;
+    @include v.itemFigure($bg-color: v.$black, $size: 56px);
+  }
+
+  .exchange__bottom-right-coin {
+    position: absolute;
+    top: -83%;
+  }
+
+  .exchange__bottom-right-title {
+    font-weight: 700;
+    font-size: 42px;
+    color: v.$title-white;
+    margin-bottom: 18px;
+  }
+
+  .exchange__bottom-right-currency {
+    margin-bottom: 75px;
+  }
+
+  .currency-item {
+    font-weight: 400;
+    font-size: 24px;
+    color: v.$title-white;
+  }
+
+  .exchange__bottom-right-input {
+    width: 100%;
+    padding: 25px 30px;
+    font-size: 25px;
+    line-height: 90%;
+    text-transform: capitalize;
+    color: v.$title-black;
+    outline: none;
+
+    &:not(:last-child) {
+      margin-bottom: 38px;
+    }
+  }
+</style>
