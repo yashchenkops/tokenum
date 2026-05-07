@@ -70,6 +70,7 @@ const freedomCard = [
 
   .freedom__info {
     max-width: 965px;
+    width: 50%;
   }
 
   .section-title {
@@ -90,19 +91,21 @@ const freedomCard = [
     flex-direction: column;
     gap: 48px;
     max-width: 627px;
-    width: 100%;
+    width: 50%;
   }
 
   .freedom__card {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
     padding: 50px;
     color: v.$title-white;
     background-image: url("data:image/svg+xml,%3Csvg width='627' height='170' viewBox='0 0 627 170' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.0004 25V0H602C615.807 0 627 11.1929 627 25.0001L626.999 170H25L0 145L0.000385284 25H25.0004Z' fill='%23151515'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-size: contain;
-    aspect-ratio: 18/5;
+    width: 627px;
+    height: 170px;
     cursor: pointer;
 
     &:hover {
@@ -131,6 +134,7 @@ const freedomCard = [
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: 54px;
     height: 54px;
     background-color: transparent;
@@ -147,5 +151,91 @@ const freedomCard = [
     bottom: -430px;
     left: 0;
     z-index: -1;
+  }
+
+  @media (max-width: v.$desktop-lg) {
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .freedom__description {
+      font-size: 24px;
+    }
+
+    .freedom__cards {
+      gap: 30px;
+    }
+
+    .freedom__card {
+      padding: 40px;
+      width: 500px;
+      height: 140px;
+    }
+
+    .freedom__card-title {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    :global(.page-section--freedom .page-section__inner) {
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .page-section--freedom {
+      padding: 80px 0;
+    }
+
+    .freedom__description {
+      font-size: 18px;
+    }
+
+    .freedom__info {
+      width: 100%;
+    }
+
+    .freedom__cards {
+      gap: 10px;
+    }
+
+    .freedom__card {
+      padding: 40px;
+      width: 500px;
+      height: 140px;
+    }
+
+    .freedom__card-title {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .page-section--freedom {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      margin-bottom: 15px;
+    }
+
+    .freedom__description {
+      font-size: 14px;
+    }
+
+    .freedom__card {
+      padding: 20px;
+      width: 360px;
+      height: 100px;
+    }
+
+    .freedom__card-title {
+      font-size: 18px;
+    }
+
+    .freedom__card-arrow {
+      width: 30px;
+      height: 30px;
+    }
   }
 </style>
