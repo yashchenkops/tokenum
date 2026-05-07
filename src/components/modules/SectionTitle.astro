@@ -51,4 +51,36 @@ const {
       -webkit-text-fill-color: transparent;
     }
   }
+
+  @media (max-width: v.$desktop-lg) {
+    .section-title {
+      &--large {
+        font-size: 72px;
+      }
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    .section-title {
+      &--large {
+        font-size: 52px;
+      }
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .section-title {
+      &--large {
+        font-size: 42px;
+      }
+    }
+  }
+
+  @media (max-width: v.$mobile) {
+    .section-title {
+      &--large {
+        font-size: 32px;
+      }
+    }
+  }
 </style>

@@ -1,0 +1,67 @@
+<div class="arrow-up">
+  <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M37.8522 73.2107V2.50001M2.49992 37.8523L37.8522 2.50001L73.2075 37.8553" stroke="#151515" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<script>
+	const arrowUp = document.querySelector('.arrow-up');
+
+  if (arrowUp) {
+    const toggleArrow = () => {
+      if (window.scrollY > 200) {
+        arrowUp.classList.add('is-active');
+      } else {
+        arrowUp.classList.remove('is-active');
+      }
+    };
+
+    window.addEventListener('scroll', toggleArrow);
+
+    arrowUp.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+
+    toggleArrow();
+  }
+</script>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .arrow-up {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 141px;
+    height: 141px;
+    border: 3px solid v.$black;
+    background-color: v.$white;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+    transition: all .3s ease;
+    
+    svg {
+      transition: all .3s ease;
+    }
+
+    &:hover {
+      svg {
+        translate: 0 -5px;
+      }
+    }
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>

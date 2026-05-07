@@ -9,7 +9,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
 
 <Section class="hero">
   <div class="hero__info">
-    <SectionTitle as="h1" size="large" tone="dark">Cutting Edge Experience</SectionTitle>
+    <SectionTitle as="h1" size="large" tone="dark">Cutting Edge<br />Experience</SectionTitle>
     <p class="hero__description">Orders fill fast, pricing stays predictable, and your assets stay locked down. The result is simple: more executed trades, fewer surprises.</p>
     <div class="hero__actions">
       <Button href="#">Open your account</Button>
@@ -40,31 +40,24 @@ import SectionTitle from '../modules/SectionTitle.astro';
   <div class="hero__coin">
     <Image class="hero-coin__img" src={heroCoin} loading="eager" fetchpriority="high" alt="Exchange coin"/>
   </div>
-  <div class="hero__decoration">
-    <svg width="1920" height="1455" viewBox="0 0 1920 1455" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2285 124.064V620H1788.98L1665 495.936L1665 124.064H1788.98V495.936H2161.02V124.064H1788.98V0H2161.02C2229.43 0 2285 55.5635 2285 124.064Z" fill="#0D7BD4"/>
-      <path d="M1416.96 0L1293 124.064V620H1416.96V124.064H1665V0H1416.96Z" fill="#0D7BD4"/>
-      <path d="M1293 0H1045V124H1293V0Z" fill="#0D7BD4"/>
-      <path d="M2302 685V1142.54C2302 1205.74 2250.83 1257 2187.74 1257H1845.26L1731 1142.54V685H1845.26V1142.54H2187.74V685H2302Z" fill="#0D7BD4"/>
-      <path d="M1501.82 685H1159.18V799.459H1045V1257H1159.18V799.459H1501.82V1256.9H1616V799.459C1616 736.262 1564.92 685 1501.82 685Z" fill="#0D7BD4"/>
-      <path d="M0 365H1920V1455H0V365Z" fill="url(#paint0_linear_2012_22)"/>
-      <defs>
-      <linearGradient id="paint0_linear_2012_22" x1="960" y1="365" x2="960" y2="1443.84" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff" stop-opacity="0"/>
-      <stop offset="0.383034" stop-color="#fff"/>
-      </linearGradient>
-      </defs>
-    </svg>
-  </div>
 </Section>
 
 <style lang="scss">
+  @use '@/styles/base/variables' as v;
+
   :global(.page-section--hero .page-section__inner) {
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding-top: 150px;
+    padding-top: 250px;
     padding-bottom: 130px;
+    margin-top: -95px;
+  }
+
+  .page-section--hero {
+    background-image: url("data:image/svg+xml,%3Csvg width='1920' height='1455' viewBox='0 0 1920 1455' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2285 124.064V620H1788.98L1665 495.936L1665 124.064H1788.98V495.936H2161.02V124.064H1788.98V0H2161.02C2229.43 0 2285 55.5635 2285 124.064Z' fill='%230D7BD4'/%3E%3Cpath d='M1416.96 0L1293 124.064V620H1416.96V124.064H1665V0H1416.96Z' fill='%230D7BD4'/%3E%3Cpath d='M1293 0H1045V124H1293V0Z' fill='%230D7BD4'/%3E%3Cpath d='M2302 685V1142.54C2302 1205.74 2250.83 1257 2187.74 1257H1845.26L1731 1142.54V685H1845.26V1142.54H2187.74V685H2302Z' fill='%230D7BD4'/%3E%3Cpath d='M1501.82 685H1159.18V799.459H1045V1257H1159.18V799.459H1501.82V1256.9H1616V799.459C1616 736.262 1564.92 685 1501.82 685Z' fill='%230D7BD4'/%3E%3Cpath d='M0 365H1920V1455H0V365Z' fill='url(%23paint0_linear_2012_22)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_2012_22' x1='960' y1='365' x2='960' y2='1443.84' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23fff' stop-opacity='0'/%3E%3Cstop offset='0.383034' stop-color='%23fff'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: top;
   }
 
   .section-title {
@@ -78,7 +71,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
   .hero__description {
     font-weight: 400;
     font-size: 32px;
-    line-height: 110%;
+    line-height: 1.3;
     color: rgba(21, 21, 21, 0.6);
     margin-bottom: 64px;
   }
@@ -169,6 +162,124 @@ import SectionTitle from '../modules/SectionTitle.astro';
         translate3d(0, 0, 0)
         rotateZ(-4deg)
         rotateY(-8deg);
+    }
+  }
+
+  @media (max-width: v.$desktop-lg) {
+    :global(.page-section--hero .page-section__inner) {
+      padding-top: 150px;
+      margin-top: 0;
+    }
+
+    .page-section--hero {
+      background-size: cover;
+    }
+
+    .hero__info {
+      max-width: 550px;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    .hero__description {
+      font-size: 24px;
+      margin-bottom: 35px;
+    }
+
+    .hero__actions {
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero__social {
+      svg {
+        width: 90px;
+      }
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    :global(.page-section--hero .page-section__inner) {
+      align-items: center;
+      justify-content: start;
+      padding-top: 100px;
+    }
+
+    .hero__info {
+      max-width: 435px;
+    }
+
+    .hero__description {
+      font-size: 18px;
+    }
+
+    .hero__actions {
+      gap: 20px;
+      margin-bottom: 0;
+    }
+
+    .hero__social {
+      svg {
+        width: 60px;
+      }
+    }
+
+    .hero__coin {
+      margin: 0 auto;
+
+      img {
+        width: 370px;
+      }
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    :global(.page-section--hero .page-section__inner) {
+      flex-direction: column-reverse;
+    }
+    
+    .page-section--hero {
+      background-position: right 20px;
+      background-size: 200%;
+    }
+
+    .hero__info {
+      max-width: 650px;
+    }
+
+    .hero__description {
+      font-size: 14px;
+    }
+
+    .hero__actions {
+      max-width: 400px;
+      gap: 10px;
+    }
+
+    .hero__social {
+      svg {
+        width: 60px;
+        height: 100px;
+      }
+    }
+
+    .hero__coin {
+      padding-right: 90px;
+
+      img {
+        width: 370px;
+      }
+    }
+  }
+
+  @media (max-width: v.$mobile) {
+    .hero__social {
+      svg {
+        width: 60px;
+        height: 80px;
+      }
     }
   }
 </style>
