@@ -32,6 +32,10 @@ const faqInfo = [
     description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
   },
 ]
+
+const middleIndex = Math.ceil(faqInfo.length / 2);
+const firstColumn = faqInfo.slice(0, middleIndex);
+const secondColumn = faqInfo.slice(middleIndex);
 ---
 <script>
   const faqItem = document.querySelectorAll('.faq__card');
@@ -48,21 +52,38 @@ const faqInfo = [
     <SectionTitle as="h2" size="medium" tone="dark">what PEOPLE<br />are Asking</SectionTitle>
   </div>
   <div class="faq__cards">
-    {faqInfo.map(card => {
-      return (
-        <div class="faq__card">
-          <div class="faq__card-info">
-            <h3 class="faq__card-title">{card.title}</h3>
-            <p class="faq__card-description">{card.description}</p>
+    <div class="faq__cards">
+      <div class="faq__column">
+        {firstColumn.map(card => (
+          <div class="faq__card">
+            <div class="faq__card-info">
+              <h3 class="faq__card-title">{card.title}</h3>
+              <p class="faq__card-description">{card.description}</p>
+            </div>
+            <div class="faq__card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.2 1.2002L1.19995 18.2002M18.1985 18.2002L1.19995 18.2002L1.19995 1.20019" stroke="#151515" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
           </div>
-          <div class="faq__card-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.2 1.2002L1.19995 18.2002M18.1985 18.2002L1.19995 18.2002L1.19995 1.20019" stroke="#151515" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        ))}
+      </div>
+      <div class="faq__column">
+        {secondColumn.map(card => (
+          <div class="faq__card">
+            <div class="faq__card-info">
+              <h3 class="faq__card-title">{card.title}</h3>
+              <p class="faq__card-description">{card.description}</p>
+            </div>
+            <div class="faq__card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.2 1.2002L1.19995 18.2002M18.1985 18.2002L1.19995 18.2002L1.19995 1.20019" stroke="#151515" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
           </div>
-        </div>
-      )
-    })}
+        ))}
+      </div>
+    </div>
   </div>
 </Section>
 
@@ -79,15 +100,14 @@ const faqInfo = [
   }
 
   .faq__cards {
-    columns: 2;
-    column-gap: 30px;
+    display: flex;
+    gap: 30px;
   }
 
   .faq__card {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    break-inside: avoid;
     margin-bottom: 24px;
     padding: 50px;
     border: 1px solid v.$black;

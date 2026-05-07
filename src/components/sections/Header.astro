@@ -1,6 +1,27 @@
 ---
 import HeaderSection from '../modules/HeaderSection/index.astro'
+
+const menuItems = [
+  { name: 'Home', link: '#' },
+  { name: 'Exchange', link: '#' },
+  { name: 'Review', link: '#' },
+  { name: 'FAQ', link: '#' },
+  { name: 'News', link: '#' },
+];
 ---
+<script>
+  const headerMenu = document.querySelector('.header__menu');
+  const headerBurger = document.querySelector('.header__burger')
+  const headerMenuClose = document.querySelector('.header__menu-close')
+
+  headerBurger?.addEventListener('click', () => {
+    headerMenu?.classList.add('is-active');
+  });
+
+  headerMenuClose?.addEventListener('click', () => {
+    headerMenu?.classList.remove('is-active');
+  })
+</script>
 
 <HeaderSection>
   <div class="header__logo">
@@ -11,6 +32,21 @@ import HeaderSection from '../modules/HeaderSection/index.astro'
     <span></span>
     <span></span>
   </button>
+  <nav class="header__menu">
+    <ul class="header__menu-ul">
+      {menuItems.map(item => (
+        <li class="header__menu-li">
+          <a href={item.link}>{item.name}</a>
+        </li>
+      ))}
+    </ul>
+    <button class="header__menu-close">
+      <svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4.24268" width="63" height="6" transform="rotate(45 4.24268 0)" fill="#F8F8F8"/>
+        <rect y="45" width="63" height="6" transform="rotate(-45 0 45)" fill="#F8F8F8"/>
+      </svg>
+    </button>
+  </nav>
 </HeaderSection>
 
 <style lang="scss">
@@ -21,6 +57,7 @@ import HeaderSection from '../modules/HeaderSection/index.astro'
   }
   
   :global(.page-header__inner) {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,5 +78,55 @@ import HeaderSection from '../modules/HeaderSection/index.astro'
       height: 6px;
       transition: all 0.3s ease;
     }
+  }
+
+  .header__menu {
+    position: absolute;
+    top: -27px;
+    right: -100%;
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    padding: 35.5px 75px;
+    background-color: v.$blue;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: all .3s ease;
+    will-change: right;
+
+    &.is-active {
+      right: -50px;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .header__menu-ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .header__menu-li {
+    a {
+      font-size: 32px;
+      line-height: 95%;
+      text-align: center;
+      color: v.$white;
+      transition: all .3s ease;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  .header__menu-close {
+    transition: all .3s ease;
+
+    &:hover {
+        scale: 1.1;
+      }
   }
 </style>
