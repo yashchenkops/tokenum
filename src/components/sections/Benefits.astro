@@ -1,0 +1,153 @@
+---
+import Button from '../modules/Button.astro';
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+
+const benefitsCard = [
+  {
+    title: 'Transparent Fees',
+    description: 'Our platform offers competitive fees, ensuring cost-effective transactions'
+  },
+  {
+    title: 'Fast Execution',
+    description: 'Experience lightning-fast trade execution, minimizing slippage and maximizing your trading potential.'
+  },
+  {
+    title: 'Secure Transactions',
+    description: 'Your assets are protected with industry-leading security measures, giving you peace of mind while trading.'
+  },
+  {
+    title: 'User-Friendly Interface',
+    description: 'Our intuitive platform makes it easy for both beginners and experienced traders to navigate and execute trades efficiently.'
+  }
+]
+---
+
+<Section class="befenits">
+  <div class="benefits__info">
+    <SectionTitle as="h2" size="large" tone="light">Why Tokenum<br /> hits?</SectionTitle>
+    <p class="benefits__description">Orders fill fast, pricing stays predictable, and your assets stay locked down. The result is simple: more executed trades, fewer surprises.</p>
+    <div class="benefits__actions">
+      <Button href="#" variant="outline-white">Open your account</Button>
+      <Button href="#" variant="blue">log in</Button>
+    </div>
+  </div>
+  <div class="befenits__cards">
+    {benefitsCard.map((card) => (
+      <div class="befenits__card">
+        <div class="befenits__card-inner">
+          <div class="befenits__card-front"></div>
+          <div class="befenits__card-back">
+            <h3 class="benefits__card-back-title">{card.title}</h3>
+            <p class="befenits__card-back-text">{card.description}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .page-section--befenits {
+    background-color: v.$black;
+    padding: 128px 0;
+  }
+  
+  :global(.page-section--befenits .page-section__inner) {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .benefits__info {
+    max-width: 840px;
+  }
+
+  .section-title {
+    margin-bottom: 48px;
+    max-width: 1000px;
+    text-transform: uppercase;
+  }
+
+  .benefits__description {
+    font-size: 32px;
+    line-height: 110%;
+    color: v.$title-white;
+    opacity: 0.6;
+    margin-bottom: 64px;
+    max-width: 700px;
+  }
+
+  .benefits__actions {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .button {
+    max-width: 340px;
+  }
+
+  .befenits__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 250px));
+    grid-template-rows: repeat(2, minmax(150px, 250px));
+    gap: 32px;
+  }
+
+  .befenits__card {
+    perspective: 1000px;
+    cursor: pointer;
+
+    &:hover {
+      .befenits__card-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    &-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      transition: all 0.6s ease;
+      background-image: url("data:image/svg+xml,%3Csvg width='250' height='250' viewBox='0 0 250 250' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 25V0H225C238.807 0 250 11.1929 250 25V250H25L0 225V25H25Z' fill='%230D7BD4'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &-front,
+    &-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+    }
+
+    &-front {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg width='250' height='250' viewBox='0 0 250 250' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 25V0H225C238.807 0 250 11.1929 250 25V250H25L0 225V25H25Z' fill='%230D7BD4'/%3E%3Cg opacity='0.2'%3E%3Cmask id='mask0_2027_45' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='250' height='250'%3E%3Cpath d='M25 25V0H225C238.807 0 250 11.1929 250 25V250H25L0 225V25H25Z' fill='%230D7BD4'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_2027_45)'%3E%3Cpath d='M180 164L325 164V195L180 195V164Z' fill='%23151515'/%3E%3Cpath d='M180 220L296 220V251L180 251V220Z' fill='%23151515'/%3E%3Crect x='46' y='195' width='114' height='29' transform='rotate(90 46 195)' fill='%23151515'/%3E%3Crect x='138' y='195' width='114' height='29' transform='rotate(90 138 195)' fill='%23151515'/%3E%3Cpath d='M46 164L138 164V195H46L46 164Z' fill='%23151515'/%3E%3Cpath d='M-46 164L17 164L17 195H-46L-46 164Z' fill='%23151515'/%3E%3Crect x='178' y='47' width='7' height='29' transform='rotate(90 178 47)' fill='%23151515'/%3E%3Cpath d='M295 86L178.2 86L149 55L295 55L295 86Z' fill='%23151515'/%3E%3Cpath d='M295 30L178.2 30L149 -0.999987L295 -1L295 30Z' fill='%23151515'/%3E%3Crect x='116' y='28' width='27' height='29' transform='rotate(90 116 28)' fill='%23151515'/%3E%3Cpath d='M-1 55L116 55V86L-1 86L-1 55Z' fill='%23151515'/%3E%3Cpath d='M-30 -3L87 -3V28L-30 28L-30 -3Z' fill='%23151515'/%3E%3C/g%3E%3C/g%3E%3Cpath d='M209.811 115H200.592V119.202H196.404V115.004H187.189V119.202H183V136H187.189V119.202H196.404V136H200.592V119.202H209.811V135.996H214V119.202C214 116.882 212.126 115 209.811 115Z' fill='%23151515'/%3E%3Cpath d='M179 115V131.798C179 134.118 177.118 136 174.798 136H162.202L158 131.798V115H162.202V131.798H174.798V115H179Z' fill='%23151515'/%3E%3Cpath d='M149.801 115H137.199V119.202H133V136H137.199V119.202H149.801V135.996H154V119.202C154 116.882 152.121 115 149.801 115Z' fill='%23151515'/%3E%3Cpath d='M111.199 127.599V131.798H128V136H111.199L107 131.798V119.202H111.199V123.401H123.801V119.202H111.199V115H123.801C126.118 115 128 116.882 128 119.202V123.401L123.801 127.599H111.199Z' fill='%23151515'/%3E%3Cpath d='M103 115H98.8007V123.401H86.1993V115H82V136H86.1993V127.599H98.8007L103 123.401V115Z' fill='%23151515'/%3E%3Cpath d='M103 128H99V136H103V128Z' fill='%23151515'/%3E%3Cpath d='M78 119.202V136H61.1993L57 131.798V119.202H61.1993V131.798H73.8007V119.202H61.1993V115H73.8007C76.1177 115 78 116.882 78 119.202Z' fill='%23151515'/%3E%3Cpath d='M48.3321 115L44 119.202V136H48.3321V119.202H57V115H48.3321Z' fill='%23151515'/%3E%3Cpath d='M44 115H36V119H44V115Z' fill='%23151515'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &-back {
+      padding: 37px 25px;
+      color: v.$black;
+      transform: rotateY(180deg);
+      background-image: url("data:image/svg+xml,%3Csvg width='250' height='250' viewBox='0 0 250 250' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M225 25V0H25C11.1929 0 0 11.1929 0 25V250H225L250 225V25H225Z' fill='%23F8F8F8'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+  .benefits__card-back-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;
+    color: v.$black;
+    margin-bottom: 32px;
+  }
+</style>

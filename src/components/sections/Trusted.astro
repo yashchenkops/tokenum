@@ -3,6 +3,11 @@ import Button from '../modules/Button.astro';
 import Section from '../modules/Section/index.astro'; 
 import SectionTitle from '../modules/SectionTitle.astro';
 ---
+<script>
+  import { initSwiper } from '../../scripts/slider';
+
+  document.querySelectorAll('[data-swiper]').forEach(initSwiper);
+</script>
 
 <Section class="trusted">
   <SectionTitle as="h2" size="medium" tone="dark">Trusted<br />by leaders</SectionTitle>
@@ -61,12 +66,6 @@ import SectionTitle from '../modules/SectionTitle.astro';
     <div class="swiper-button-next"></div>
   </div>
 </Section>
-
-<script>
-  import { initSwiper } from '../../scripts/slider';
-
-  document.querySelectorAll('[data-swiper]').forEach(initSwiper);
-</script>
 
 <style lang="scss" is:global>
   @use 'swiper/css';
