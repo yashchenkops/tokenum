@@ -5,7 +5,7 @@ export function initSwiper(el) {
   return new Swiper(el, {
     modules: [Navigation],
     loop: true,
-    spaceBetween: 32,
+    spaceBetween: 20,
     centeredSlides: true,
     simulateTouch: false,
     speed: 800,
@@ -14,11 +14,15 @@ export function initSwiper(el) {
       0: {
         slidesPerView: 1,
       },
-      768: {
+      375: {
         slidesPerView: 2,
       },
       1024: {
         slidesPerView: 3,
+      },
+      1240: {
+        slidesPerView: 3,
+        spaceBetween: 32,
       },
     },
 
