@@ -1,0 +1,48 @@
+---
+import Button from '../modules/Button.astro';
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+---
+
+<Section class="inquiries">
+  <SectionTitle as="h2" size="large" tone="light">Business inquiries</SectionTitle>
+  <p class="inquiries__description">Dedicated to institutions and businesses interested in working with us.</p>
+  <div class="inquiries__actions">
+      <Button href="#" variant="outline-white">Get in touch</Button>
+      <Button href="#" variant="white">Enter yout email</Button>
+    </div>
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  :global(.page-section--inquiries .page-section__inner) {
+    background-color: v.$black;
+    padding: 180px 160px 100px;
+    border-top-right-radius: 100px;
+    @include v.itemFigure();
+  }
+
+  .page-section--inquiries {
+    padding-bottom: 150px;
+  }
+
+  .section-title {
+    margin-bottom: 48px;
+    max-width: 1000px;
+  }
+
+  .inquiries__description {
+    font-size: 32px;
+    line-height: 110%;
+    color: v.$title-white;
+    opacity: 0.6;
+    margin-bottom: 64px;
+  }
+
+  .inquiries__actions {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+</style>
