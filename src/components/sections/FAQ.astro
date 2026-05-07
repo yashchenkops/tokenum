@@ -1,0 +1,158 @@
+---
+import Section from '../modules/Section/index.astro'; 
+import SectionTitle from '../modules/SectionTitle.astro';
+
+const faqInfo = [
+  {
+    title: 'How do I register and buy cryprocurrency',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'Which cryptocurrencies are supported?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'Does Empresex have a license?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'How can I contact support?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'What personal information is required for KYC?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'What documents can be accepted as proof of identity (POl), proof of address (POA), and source of funds (SOF)?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+  {
+    title: 'How long does the verification process take?',
+    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+  },
+]
+---
+<script>
+  const faqItem = document.querySelectorAll('.faq__card');
+
+  faqItem.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('is-active');
+    })
+  })
+</script>
+
+<Section class="faq">
+  <div class="faq__info">
+    <SectionTitle as="h2" size="medium" tone="dark">what PEOPLE<br />are Asking</SectionTitle>
+  </div>
+  <div class="faq__cards">
+    {faqInfo.map(card => {
+      return (
+        <div class="faq__card">
+          <div class="faq__card-info">
+            <h3 class="faq__card-title">{card.title}</h3>
+            <p class="faq__card-description">{card.description}</p>
+          </div>
+          <div class="faq__card-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.2 1.2002L1.19995 18.2002M18.1985 18.2002L1.19995 18.2002L1.19995 1.20019" stroke="#151515" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      )
+    })}
+  </div>
+</Section>
+
+<style lang="scss">
+  @use '@/styles/base/variables' as v;
+
+  .page-section--faq {
+    padding: 128px 0;
+  }
+
+  .section-title {
+    text-transform: uppercase;
+    margin-bottom: 64px;
+  }
+
+  .faq__cards {
+    columns: 2;
+    column-gap: 30px;
+  }
+
+  .faq__card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    break-inside: avoid;
+    margin-bottom: 24px;
+    padding: 50px;
+    border: 1px solid v.$black;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &.is-active {
+      background-color: v.$blue;
+      border-color: v.$white;
+
+      .faq__card-title {
+        color: v.$white;
+      }
+
+      .faq__card-description {
+        color: rgba(248, 248, 248, 0.6);
+        max-height: fit-content;
+        visibility: visible;
+        margin-top: 24px;
+      }
+
+      .faq__card-arrow {
+        border-color: v.$white;
+
+        svg {
+          rotate: 180deg;
+
+          path {
+            stroke: v.$white;
+          }
+        }
+      }
+    }
+  }
+
+  .faq__card-info {
+    max-width: 593px;
+  }
+
+  .faq__card-title {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 110%;
+    text-transform: capitalize;
+    color: v.$black;
+  }
+
+  .faq__card-description {
+    max-height: 0;
+    visibility: hidden;
+    font-size: 32px;
+    line-height: 110%;
+    transition: max-height 0.2s ease;
+  }
+
+  .faq__card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border: 1px solid v.$black;
+    
+    svg {
+      transition: translate 0.2s ease;
+    }
+  }
+</style>
