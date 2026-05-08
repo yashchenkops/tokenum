@@ -5,6 +5,12 @@
 .page-header__inner {
   max-width: 1626px;
   min-width: 320px;
-  padding: 0 15px;
+  padding: 0 50px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page-header__inner {
+    padding: 0 15px;
+  }
 }
