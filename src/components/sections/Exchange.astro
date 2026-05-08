@@ -10,6 +10,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
   <div class="exchange__top">
     <SectionTitle as="h2" size="medium" tone="light">crypto<br />Exchange</SectionTitle>
     <p class="exchange__description">Convert Bitcoin, Ethereum, and altcoins instantly—optimized for transparency and convenience.</p>
+    <Image class="exchange__top-coin" src={exchangeCoin} alt="Exchange coin"/>
   </div>
   <div class="exchange__bottom">
     <div class="exchange__bottom-left">
@@ -56,7 +57,6 @@ import SectionTitle from '../modules/SectionTitle.astro';
       </div>
     </div>
     <div class="exchange__bottom-right">
-      <Image class="exchange__bottom-right-coin" src={exchangeCoin} alt="Exchange coin"/>
       <div class="exchange__bottom-right-form">
         <h3 class="exchange__bottom-right-title">
           Exchange crypto instantly
@@ -79,10 +79,25 @@ import SectionTitle from '../modules/SectionTitle.astro';
   .page-section--exchange {
     background-color: v.$black;
     padding: 128px 0 190px;
+    overflow-x: clip;
   }
 
   .exchange__top {
+    position: relative;
     margin-bottom: 64px;
+  }
+
+  .exchange__top-coin {
+    position: absolute;
+    right: 0;
+    top: -130px;
+    animation: coinHover 7s ease-in-out infinite, coinTilt 10s linear infinite;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    will-change: transform;
+    height: auto;
+    max-width: 100%;
+    z-index: 1;
   }
 
   .section-title {
@@ -111,7 +126,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
     color: v.$title-white;
     border: 1px solid v.$white;
     border-radius: 0 60px 0 0;
-    width: 50%;
+    flex: 1 1 50%;
     @include v.itemFigure($bg-color: v.$black, $size: 57px);
 
     &::before {
@@ -158,20 +173,11 @@ import SectionTitle from '../modules/SectionTitle.astro';
   }
 
   .exchange__bottom-right {
-    width: 50%;
+    flex: 1 1 50%;
     padding: 113px 54px 96px 89px;
     border-radius: 0 60px 0 0;
     background-color: v.$blue;
     @include v.itemFigure($bg-color: v.$black, $size: 56px);
-  }
-
-  .exchange__bottom-right-coin {
-    position: absolute;
-    top: -83%;
-    animation: coinHover 7s ease-in-out infinite, coinTilt 10s linear infinite;
-    transform-origin: center;
-    transform-style: preserve-3d;
-    will-change: transform;
   }
 
   .exchange__bottom-right-title {
@@ -254,6 +260,152 @@ import SectionTitle from '../modules/SectionTitle.astro';
 
     100% {
       filter: brightness(1);
+    }
+  }
+
+  @media (max-width: v.$desktop-lg) {
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .exchange__description {
+      font-size: 24px;
+      max-width: 500px;
+    }
+
+    .exchange__top-coin {
+      width: 370px;
+      right: 40px;
+    }
+
+    .exchange__bottom-left {
+      padding: 100px 80px;
+    }
+
+    .exchange__bottom-right {
+      padding: 100px 70px;
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    .exchange__description {
+      font-size: 18px;
+      max-width: 390px;
+    }
+
+    .page-section--exchange {
+      padding: 100px 0;
+    }
+
+    .exchange__top-coin {
+      width: 340px;
+      top: -90px;
+    }
+    
+    .exchange__bottom-left {
+      padding: 100px 50px;
+    }
+
+    .exchange__bottom-left-item {
+      gap: 25px;
+    }
+
+    .exchange__bottom-left-title {
+      font-size: 38px;
+    }
+
+    .exchange__bottom-left-description {
+      font-size: 20px;
+    }
+
+    .exchange__bottom-right {
+      padding: 100px 50px;
+    }
+
+    .exchange__bottom-right-title {
+      font-size: 38px;
+    }
+
+    .exchange__bottom-right-currency {
+      margin-bottom: 40px;
+    }
+
+    .currency-item {
+      font-size: 20px;
+    }
+
+    .exchange__bottom-right-input {
+      padding: 15px 20px;
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .page-section--exchange {
+      padding-top: 70px;
+    }
+
+    .exchange__description {
+      font-size: 14px;
+      max-width: 280px;
+    }
+
+    .exchange__top-coin {
+      width: 250px;
+      top: -50px;
+      right: 0;
+    }
+
+    .exchange__bottom {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .exchange__description {
+      max-width: 100%;
+    }
+
+    .exchange__top {
+      margin-bottom: 30px;
+    }
+
+    .exchange__top-coin {
+      top: -220px;
+    }
+
+    .exchange__bottom-left {
+      padding: 60px 30px;
+      @include v.itemFigure($bg-color: v.$black, $size: 30px);
+    }
+
+    .exchange__bottom-left-title {
+      font-size: 28px;
+    }
+
+    .exchange__bottom-left-description {
+      font-size: 18px;
+    }
+
+    .exchange__bottom-right {
+      padding: 60px 30px;
+      @include v.itemFigure($bg-color: v.$black, $size: 30px);
+    }
+
+    .exchange__bottom-right-title {
+      font-size: 32px;
+    }
+
+    .currency-item {
+      font-size: 18px;
+    }
+
+    .exchange__bottom-right-input {
+      font-size: 18px;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
     }
   }
 </style>
