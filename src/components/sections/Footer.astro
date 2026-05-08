@@ -36,21 +36,20 @@ import Button from '../modules/Button.astro'
     </div>
     <nav class="footer-center_menu">
       <div class="footer-center_menu-col">
-        <a href="#">Home</a>
-        <a href="#">About us</a>
-        <a href="#">FAQ</a>
-        <a href="#">Blog</a>
+        <a href="/">Home</a>
+        <a href="#befenits">About us</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="footer-center_menu-col">
         <a href="#">Pricing</a>
-        <a href="#">Terms&Conditions</a>
-        <a href="#">Complaints Procedure</a>
-        <a href="#">AML&KYC Policy</a>
+        <a href="/TERMS-CONDITIONS-TOKENUM.pdf" target="_blank">Terms&Conditions</a>
+        <a href="/COMPLAINTS-PROCEDURE-TOKENUM.pdf" target="_blank">Complaints Procedure</a>
+        <a href="/PRIVACY-POLICY TOKENUM.pdf" target="_blank">AML&KYC Policy</a>
       </div>
       <div class="footer-center_menu-col">
-        <a href="#">Refund&Cancelation</a>
-        <a href="#">Termination Policy</a>
-        <a href="#">Risk Disclosure</a>
+        <a href="/REFUND-AND-CANCELLATION-TOKENUM.pdf" target="_blank">Refund&Cancelation</a>
+        <a href="/TERMINATION-POLICY-TOKENUM.pdf" target="_blank">Termination Policy</a>
+        <a href="/RISK-DISCLOSURE-TOKENUM.pdf" target="_blank">Risk Disclosure</a>
       </div>
     </nav>
   </div>
@@ -102,7 +101,7 @@ import Button from '../modules/Button.astro'
 
   .footer-left-description {
     font-size: 16px;
-    line-height: 100%;
+    line-height: 1.3;
     color: v.$title-white;
     margin-bottom: 17px;
   }
@@ -216,6 +215,43 @@ import Button from '../modules/Button.astro'
       time {
         font-size: 14px;
       }
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .page-footer {
+      padding: 50px 0;
+    }
+
+    .logo-footer {
+      width: 250px;
+    }
+
+    .footer-left {
+      max-width: 100%;
+    }
+
+    .button {
+      max-width: 170px;
+    }
+
+    .footer-left-description {
+      font-size: 14px;
+    }
+
+    .footer-left__socials {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: v.$mobile) {
+    .footer-center_menu {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-center_menu-col {
+      width: 100%;
     }
   }
 </style>

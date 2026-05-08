@@ -42,18 +42,22 @@ const secondColumn = faqInfo.slice(middleIndex);
 
   faqItem.forEach(item => {
     item.addEventListener('click', () => {
+      faqItem.forEach(item => {
+        item.classList.remove('is-active');
+      })
+
       item.classList.toggle('is-active');
     })
   })
 </script>
 
-<Section class="faq">
+<Section class="faq" id="faq">
   <div class="faq__info">
     <SectionTitle as="h2" size="medium" tone="dark">what PEOPLE<br />are Asking</SectionTitle>
   </div>
   <div class="faq__cards">
     <div class="faq__cards">
-      <div class="faq__column">
+      <div class="faq__column" data-aos="fade-down">
         {firstColumn.map(card => (
           <div class="faq__card">
             <div class="faq__card-info">
@@ -68,7 +72,7 @@ const secondColumn = faqInfo.slice(middleIndex);
           </div>
         ))}
       </div>
-      <div class="faq__column">
+      <div class="faq__column" data-aos="fade-down">
         {secondColumn.map(card => (
           <div class="faq__card">
             <div class="faq__card-info">
@@ -125,9 +129,11 @@ const secondColumn = faqInfo.slice(middleIndex);
 
       .faq__card-description {
         color: rgba(248, 248, 248, 0.6);
-        max-height: fit-content;
-        visibility: visible;
+        max-height: 300px;
+        opacity: 1;
         margin-top: 24px;
+        color: rgba(248, 248, 248, 0.6);
+        visibility: visible;
       }
 
       .faq__card-arrow {
@@ -135,6 +141,7 @@ const secondColumn = faqInfo.slice(middleIndex);
 
         svg {
           rotate: 180deg;
+          transition: rotate 0.3s ease;
 
           path {
             stroke: v.$white;
@@ -158,10 +165,17 @@ const secondColumn = faqInfo.slice(middleIndex);
 
   .faq__card-description {
     max-height: 0;
-    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+
     font-size: 32px;
     line-height: 110%;
-    transition: max-height 0.2s ease;
+
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease,
+      margin-top 0.3s ease;
   }
 
   .faq__card-arrow {
@@ -217,6 +231,7 @@ const secondColumn = faqInfo.slice(middleIndex);
 
     .faq__cards {
       flex-direction: column;
+      gap: 0;
     }
 
     .faq__card-description {
@@ -247,7 +262,7 @@ const secondColumn = faqInfo.slice(middleIndex);
     }
 
     .faq__card-title {
-      font-size: 24px;
+      font-size: 20px;
     }
 
     .faq__card-description {

@@ -23,8 +23,8 @@ const benefitsCard = [
 ]
 ---
 
-<Section class="befenits">
-  <div class="benefits__info">
+<Section class="befenits" id="befenits">
+  <div class="benefits__info" data-aos="fade-right">
     <SectionTitle as="h2" size="large" tone="light">Why Tokenum<br /> hits?</SectionTitle>
     <p class="benefits__description">Orders fill fast, pricing stays predictable, and your assets stay locked down. The result is simple: more executed trades, fewer surprises.</p>
     <div class="benefits__actions">
@@ -34,7 +34,7 @@ const benefitsCard = [
   </div>
   <div class="befenits__cards">
     {benefitsCard.map((card) => (
-      <div class="befenits__card">
+      <div class="befenits__card" data-aos="zoom-in">
         <div class="befenits__card-inner">
           <div class="befenits__card-front"></div>
           <div class="befenits__card-back">
@@ -84,7 +84,6 @@ const benefitsCard = [
     align-items: center;
     gap: 36px;
   }
-
 
   .befenits__cards {
     display: grid;
@@ -264,21 +263,39 @@ const benefitsCard = [
     }
 
     .befenits__cards {
-      justify-content: center;
+      grid-template-columns: repeat(2, 250px);
+      grid-template-rows: repeat(2, 250px);
+    }
+
+    .befenits__card-inner {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 554px) {
+    .befenits__cards {
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(2, 200px);
+    }
+
+    .befenits__card-inner {
+      width: 200px;
+      height: 200px;
     }
   }
 
   @media (max-width: v.$mobile + 20px) {
     .befenits__cards {
-      grid-template-columns: repeat(2, 150px);
-      grid-template-rows: repeat(2, 150px);
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(2, 140px);
       gap: 10px;
     }
 
     .befenits__card-inner {
       animation: none;
-      width: 150px;
-      height: 170px;
+      width: 140px;
+      height: 140px;
     }
 
     .befenits__card-back {

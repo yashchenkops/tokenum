@@ -64,4 +64,32 @@
       visibility: visible;
     }
   }
+
+  @media (max-width: v.$desktop-lg) {
+    .arrow-up {
+      width: 100px;
+      height: 100px;
+
+      svg {
+        width: 50px;
+      }
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    .arrow-up {
+      width: 80px;
+      height: 80px;
+
+      svg {
+        width: 40px;
+      }
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .arrow-up {
+      display: none !important;
+    }
+  }
 </style>

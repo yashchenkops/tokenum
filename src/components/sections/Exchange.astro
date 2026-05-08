@@ -6,14 +6,14 @@ import Section from '../modules/Section/index.astro';
 import SectionTitle from '../modules/SectionTitle.astro';
 ---
 
-<Section class="exchange">
-  <div class="exchange__top">
+<Section class="exchange" id="exchange">
+  <div class="exchange__top" data-aos="fade-down">
     <SectionTitle as="h2" size="medium" tone="light">crypto<br />Exchange</SectionTitle>
     <p class="exchange__description">Convert Bitcoin, Ethereum, and altcoins instantly—optimized for transparency and convenience.</p>
     <Image class="exchange__top-coin" src={exchangeCoin} alt="Exchange coin"/>
   </div>
   <div class="exchange__bottom">
-    <div class="exchange__bottom-left">
+    <div class="exchange__bottom-left" data-aos="fade-right">
       <div class="exchange__bottom-left-item">
         <div class="exchange__bottom-left-icon">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
         </div>
       </div>
     </div>
-    <div class="exchange__bottom-right">
+    <div class="exchange__bottom-right" data-aos="fade-left">
       <div class="exchange__bottom-right-form">
         <h3 class="exchange__bottom-right-title">
           Exchange crypto instantly
@@ -85,6 +85,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
   .exchange__top {
     position: relative;
     margin-bottom: 64px;
+    z-index: 1;
   }
 
   .exchange__top-coin {

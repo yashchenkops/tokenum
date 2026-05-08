@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-
-import heroCoin from '@/assets/img/hero-coin.webp';
+import heroCoin from '@/assets/img/hero-coin.webp'
 import Section from '../modules/Section/index.astro';
 import Button from '../modules/Button.astro';
 import SectionTitle from '../modules/SectionTitle.astro';
 ---
 
-<Section class="hero">
-  <div class="hero__info">
+
+
+<Section class="hero" id="hero">
+  <div class="hero__info" data-aos="fade-right">
     <SectionTitle as="h1" size="large" tone="dark">Cutting Edge<br />Experience</SectionTitle>
     <p class="hero__description">Orders fill fast, pricing stays predictable, and your assets stay locked down. The result is simple: more executed trades, fewer surprises.</p>
     <div class="hero__actions">
@@ -37,8 +37,8 @@ import SectionTitle from '../modules/SectionTitle.astro';
       </a>
     </div>
   </div>
-  <div class="hero__coin">
-    <Image class="hero-coin__img" src={heroCoin} loading="eager" fetchpriority="high" alt="Exchange coin"/>
+  <div class="hero__coin" data-aos="fade-left">
+    <img class="hero-coin__img" src={heroCoin.src} alt="Exchange coin"/>
   </div>
 </Section>
 

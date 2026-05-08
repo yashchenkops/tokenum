@@ -4,12 +4,50 @@ import Section from '../modules/Section/index.astro';
 import SectionTitle from '../modules/SectionTitle.astro';
 ---
 <script>
-  import { initSwiper } from '../../scripts/slider';
+  import Swiper from 'swiper';
+  import { Navigation, Autoplay } from 'swiper/modules';
+
+  function initSwiper(el) {
+    return new Swiper(el, {
+      modules: [Navigation, Autoplay],
+      loop: true,
+      spaceBetween: 15,
+      centeredSlides: true,
+      simulateTouch: false,
+      speed: 800,
+      slidesPerView: 1,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+
+      breakpoints: {
+        0: {
+          slidesPerView: 1.3,
+        },
+        524: {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+        },
+        1240: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+
+      navigation: {
+        nextEl: el.parentElement.querySelector('.swiper-button-next'),
+        prevEl: el.parentElement.querySelector('.swiper-button-prev'),
+        addIcons: false,
+      },
+    });
+  }
 
   document.querySelectorAll('[data-swiper]').forEach(initSwiper);
 </script>
 
-<Section class="trusted">
+<Section class="trusted" id="trusted">
   <SectionTitle as="h2" size="medium" tone="dark">Trusted<br />by leaders</SectionTitle>
   <div class="trusted__slider">
     <div class="trusted__slider-wrapper swiper" data-swiper>
@@ -77,6 +115,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
 
   .page-section--trusted {
     padding-bottom: 150px;
+    overflow-x: clip;
   }
 
   .section-title {
@@ -101,7 +140,7 @@ import SectionTitle from '../modules/SectionTitle.astro';
     justify-content: space-between;
     border-radius: 0 45px 0 0;
     background-color: v.$black;
-    padding: 60px 72px 45px 71px;
+    padding: 60px 40px 45px 50px;
     @include v.itemFigure($size: 45px);
     min-height: 450px;
 
@@ -161,14 +200,19 @@ import SectionTitle from '../modules/SectionTitle.astro';
   }
 
   .button {
-    font-size: 20px;
+    font-size: 18px;
+    padding-left: 7px;
+  }
+
+  .button__arrow {
+    flex-shrink: 0;
   }
 
   @media (max-width: v.$desktop-lg) {
     .trusted__slide {
-      padding: 50px;
+      padding: 40px;
       @include v.itemFigure($size: 30px);
-      min-height: 400px;
+      min-height: 350px;
     }
 
     .trusted__slide-description {
@@ -186,9 +230,37 @@ import SectionTitle from '../modules/SectionTitle.astro';
     }
   }
 
+  @media (max-width: v.$desktop) {
+    .trusted__slider {
+      padding: 0 50px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 34px;
+      height: 34px;
+    }
+
+    .trusted__slide-description {
+      font-size: 18px;
+    }
+
+    .button {
+      font-size: 14px;
+    }
+  }
+
   @media (max-width: v.$tablet) {
     .page-section--trusted {
       padding-bottom: 100px;
+    }
+
+    .swiper {
+      overflow: visible;
+    }
+
+    .trusted__slide {
+      min-height: 280px;
     }
 
     .trusted__slider {
@@ -198,6 +270,12 @@ import SectionTitle from '../modules/SectionTitle.astro';
     .swiper-button-prev,
     .swiper-button-next {
       display: none;
+    }
+  }
+
+  @media (max-width: v.$mobile) {
+    .trusted__slide {
+      padding: 40px 20px;
     }
   }
 </style>
