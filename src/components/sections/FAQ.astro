@@ -108,7 +108,8 @@ const secondColumn = faqInfo.slice(middleIndex);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 30px;
     padding: 50px;
     border: 1px solid v.$black;
     transition: all 0.2s ease;
@@ -167,12 +168,90 @@ const secondColumn = faqInfo.slice(middleIndex);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: 54px;
     height: 54px;
     border: 1px solid v.$black;
     
     svg {
       transition: translate 0.2s ease;
+    }
+  }
+
+  @media (max-width: v.$desktop) {
+    .page-section--faq {
+      padding-top: 100px;
+    }
+
+    .section-title {
+      margin-bottom: 50px;
+    }
+
+    .faq__cards {
+      gap: 20px;
+    }
+
+    .faq__card {
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .faq__card-title {
+      font-size: 38px;
+    }
+
+    .faq__card-description {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .page-section--faq {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .faq__card-title {
+      font-size: 32px;
+    }
+
+    .faq__cards {
+      flex-direction: column;
+    }
+
+    .faq__card-description {
+      font-size: 22px;
+    }
+
+    .faq__card-arrow {
+      width: 30px;
+      height: 30px;
+
+      svg {
+        width: 12px;
+      }
+    }
+  }
+
+  @media (max-width: v.$mobile) {
+    .page-section--faq {
+      padding-top: 40px;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .faq__card {
+      padding: 15px;
+    }
+
+    .faq__card-title {
+      font-size: 24px;
+    }
+
+    .faq__card-description {
+      font-size: 18px;
     }
   }
 </style>
