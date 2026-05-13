@@ -4,32 +4,32 @@ import SectionTitle from '../modules/SectionTitle.astro';
 
 const faqInfo = [
   {
-    title: 'How do I register and buy cryprocurrency',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'How do I start exchanging fiat for crypto on Tokenum?',
+    description: 'Click "Sign Up", confirm your email, and complete a quick verification. Once verified, you can exchange fiat for crypto directly on the platform — in seconds.'
   },
   {
-    title: 'Which cryptocurrencies are supported?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'What does the account verification process involve?',
+    description: 'We collect your full name, date of birth, phone number, and email to verify your identity. For higher-volume activity, we may also ask for proof of address or source of funds as part of our compliance process'
   },
   {
-    title: 'Does Empresex have a license?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'What documents are accepted for identity and address verification?',
+    description: `Proof of Identity: passport, national ID card, driver's license, or residence permit — must be in color and clearly show your full name. Proof of Address: utility bill, bank statement, or tax document issued within the last 3 months — showing your name, address, and date.`
   },
   {
-    title: 'How can I contact support?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'Does Tokenum have a license and comply with regulations?',
+    description: 'Yes. Tokenum is a registered Canadian company holding an MSB (Money Services Business) license, authorizing us to provide cryptocurrency exchange services in full regulatory compliance.'
   },
   {
-    title: 'What personal information is required for KYC?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'How are my funds protected on the platform?',
+    description: 'Tokenum uses multi-layer encryption and strict internal security protocols. Every transaction is monitored in real time, and your funds are never held longer than necessary.'
   },
   {
-    title: 'What documents can be accepted as proof of identity (POl), proof of address (POA), and source of funds (SOF)?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'What currencies and cryptocurrencies are supported?',
+    description: 'We currently support Bitcoin (BTC), Ethereum (ETH), and USD Coin (USDC), with fiat pairs including EUR and USD. More assets are being added regularly.'
   },
   {
-    title: 'How long does the verification process take?',
-    description: 'Our tailored banking solutions help small businesses manage  cash flow, access capital, and streamline operations efficiently.'
+    title: 'How can I reach the support team if something goes wrong?',
+    description: 'Reach our team by emailing support@tokenum.io or by submitting a request directly in your account under the Support tab.'
   },
 ]
 
@@ -42,11 +42,16 @@ const secondColumn = faqInfo.slice(middleIndex);
 
   faqItem.forEach(item => {
     item.addEventListener('click', () => {
+      const isActive = item.classList.contains('is-active');
+
       faqItem.forEach(item => {
         item.classList.remove('is-active');
       })
-
-      item.classList.toggle('is-active');
+      
+      if (!isActive) {
+        item.classList.add('is-active')
+      }
+      
     })
   })
 </script>
